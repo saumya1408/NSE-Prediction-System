@@ -399,13 +399,13 @@ Distributed under the MIT License. See `LICENSE` for details.
 
 ## 📬 Contact
 
-**Your Name**  
-[LinkedIn](https://www.linkedin.com/in/yourprofile) • [Twitter](https://twitter.com/yourtwitter) • your.email@example.com
+**Saumya Thakor**  
+[LinkedIn](linkedin.com/in/saumya-thakor-313abb1b1/) •• saumyathakor2003@example.com
 
 ---
 
 <div align="center">
-  Made with ❤️ by Your Name  
+  
   <br>
   <sub>Optimized for technical recruiters & open-source contributors</sub>
 </div>
@@ -465,6 +465,3 @@ Project Link: [https://github.com/yourusername/Stock-Price-Prediction](https://g
 
 ---
 
-<div align="center">
-  Made with ❤️ by Your Name
-</div>
