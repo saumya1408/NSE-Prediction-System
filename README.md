@@ -9,7 +9,11 @@
 ---
 
 <div align="center">
-  <img src="docs/assets/demo_dashboard.gif" alt="Demo GIF" width="80%"/>
+  <a href="https://drive.google.com/file/d/1jpGSw7rb4c8WpTFN4pr4SrPXsk4gYlyt/view?usp=sharing" target="_blank" style="display: inline-block; padding: 12px 24px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; margin: 20px 0;">
+    🎥 View Demo Video
+  </a>
+  <br><br>
+  <img src="https://drive.google.com/uc?export=view&id=1laGMYoLQMYgs0nOhHBPKt9OCrkO7ebVs" alt="Dashboard Screenshot" width="90%"/>
   <br>
   <em>Modern dashboard for multi-stock prediction, evaluation, and visualization</em>
 </div>
@@ -84,51 +88,53 @@ LSTM/
 └── README.md                 # Project documentation
 ```
 
-### 📦 Visual Project Structure (Mermaid)
+### 📦 Project Structure Overview
 
-```mermaid
-flowchart TD
-    A[Root LSTM Project] --> B[web_app]
-    A --> C[scripts]
-    A --> D[data]
-    A --> E[models]
-    B --> B1[static]
-    B --> B2[templates]
-    B --> B3[app.py]
-    B1 --> B11[css/]
-    B1 --> B12[js/]
-    B2 --> B21[index.html]
-    C --> C1[lstm_trainer.py]
-    C --> C2[predictor.py]
-    C --> C3[data_fetcher.py]
-    C --> C4[data_preprocessor.py]
-    C --> C5[evaluate.py]
-    D --> D1[processed/]
-    D --> D2[preprocessed/]
+```
+Root Directory
+├── web_app/                  # Flask web application
+│   ├── static/               # Static files (CSS, JS, images)
+│   │   ├── css/              # Custom stylesheets
+│   │   └── js/               # JavaScript for interactivity
+│   ├── templates/            # HTML Jinja templates
+│   │   └── index.html        # Main dashboard UI
+│   ├── app.py                # Main Flask app (API + routing)
+│   └── logs/                 # Web app logs
+├── scripts/                  # Core Python scripts
+│   ├── lstm_trainer.py       # Model training (CNN-LSTM)
+│   ├── predictor.py          # Prediction logic (inference)
+│   ├── data_fetcher.py       # Fetches raw stock data (yfinance)
+│   ├── data_preprocessor.py  # Cleans & preprocesses data
+│   └── evaluate.py           # Model evaluation metrics
+├── data/                     # Stock data storage
+│   ├── processed/            # Cleaned CSVs (per stock)
+│   └── preprocessed/         # NPY arrays, scalers (per stock)
+├── models/                   # Trained PyTorch model files (.pt)
+└── requirements.txt          # Python dependencies
 ```
 
-#### 🗃️ Directory Relationships
-- **web_app/**: Everything for the web dashboard and API
-- **scripts/**: All ML, data, and evaluation logic
-- **data/**: Raw, processed, and preprocessed stock data
-- **models/**: Saved PyTorch models (per stock)
+### 🔄 Data Flow
 
----
+1. **Data Collection**
+   - `data_fetcher.py` → Fetches stock data from yfinance
+   - Saves as CSV in `data/processed/`
 
-### 🧭 Data Flow Diagram (Mermaid)
+2. **Data Preprocessing**
+   - `data_preprocessor.py` → Cleans and normalizes data
+   - Saves as NPY files in `data/preprocessed/`
 
-```mermaid
-flowchart LR
-    subgraph Data_Pipeline
-      A1[Raw CSVs<br>data/processed/] --> A2[Preprocessing<br>scripts/data_preprocessor.py]
-      A2 --> A3[Preprocessed NPYs<br>data/preprocessed/]
-      A3 --> A4[Model Training<br>scripts/lstm_trainer.py]
-      A4 --> A5[Trained Models<br>models/*.pt]
-    end
-    A5 --> B1[Prediction<br>scripts/predictor.py]
-    B1 --> C1[API (web_app/app.py)]
-    C1 --> D1[Web Dashboard (index.html)]
-```
+3. **Model Training**
+   - `lstm_trainer.py` → Trains CNN-LSTM model
+   - Saves trained model in `models/`
+
+4. **Prediction**
+   - `predictor.py` → Loads model and makes predictions
+   - Returns results to web interface
+
+5. **Web Interface**
+   - `web_app/app.py` → Handles API requests
+   - `templates/index.html` → Interactive dashboard
+   - `static/` → Frontend assets (CSS/JS)
 
 ---
 
