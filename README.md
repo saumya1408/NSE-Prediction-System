@@ -61,80 +61,48 @@ NSE Luminary AI is a production-grade platform for stock price prediction using 
 
 ---
 
-## 🗂️ Project Structure
+## 🗂️ Project Structure & Data Flow
 
-```text
+```
 LSTM/
 ├── web_app/                  # Flask web application
-│   ├── static/               # Static files (CSS, JS, images)
-│   │   ├── css/              # Custom stylesheets
-│   │   └── js/               # JavaScript for interactivity
-│   ├── templates/            # HTML Jinja templates
-│   │   └── index.html        # Main dashboard UI
-│   ├── app.py                # Main Flask app (API + routing)
-│   └── logs/                 # Web app logs
-├── scripts/                  # Core Python scripts
-│   ├── lstm_trainer.py       # Model training (CNN-LSTM)
-│   ├── predictor.py          # Prediction logic (inference)
-│   ├── data_fetcher.py       # Fetches raw stock data (yfinance)
-│   ├── data_preprocessor.py  # Cleans & preprocesses data
-│   ├── evaluate.py           # Model evaluation metrics
-│   └── logs/                 # Training logs
-├── data/                     # Stock data storage
-│   ├── processed/            # Cleaned CSVs (per stock)
-│   └── preprocessed/         # NPY arrays, scalers (per stock)
-├── models/                   # Trained PyTorch model files (.pt)
-├── requirements.txt          # Python dependencies
-└── README.md                 # Project documentation
+│   ├── static/               # Frontend assets (CSS/JS)
+│   ├── templates/            # Dashboard UI (HTML)
+│   └── app.py               # API endpoints & routing
+├── scripts/                 # Core ML scripts
+│   ├── lstm_trainer.py      # Model training
+│   ├── predictor.py         # Price prediction
+│   ├── data_fetcher.py      # Fetch stock data
+│   ├── data_preprocessor.py # Clean & normalize
+│   └── evaluate.py          # Model evaluation
+├── data/                    # Stock data
+│   ├── processed/           # Raw CSVs
+│   └── preprocessed/        # Processed NPYs
+└── models/                  # Trained models
 ```
 
-### 📦 Project Structure Overview
+### 🔄 How It Works
 
-```
-Root Directory
-├── web_app/                  # Flask web application
-│   ├── static/               # Static files (CSS, JS, images)
-│   │   ├── css/              # Custom stylesheets
-│   │   └── js/               # JavaScript for interactivity
-│   ├── templates/            # HTML Jinja templates
-│   │   └── index.html        # Main dashboard UI
-│   ├── app.py                # Main Flask app (API + routing)
-│   └── logs/                 # Web app logs
-├── scripts/                  # Core Python scripts
-│   ├── lstm_trainer.py       # Model training (CNN-LSTM)
-│   ├── predictor.py          # Prediction logic (inference)
-│   ├── data_fetcher.py       # Fetches raw stock data (yfinance)
-│   ├── data_preprocessor.py  # Cleans & preprocesses data
-│   └── evaluate.py           # Model evaluation metrics
-├── data/                     # Stock data storage
-│   ├── processed/            # Cleaned CSVs (per stock)
-│   └── preprocessed/         # NPY arrays, scalers (per stock)
-├── models/                   # Trained PyTorch model files (.pt)
-└── requirements.txt          # Python dependencies
-```
+1. **Data Pipeline**
+   - Fetches stock data using yfinance
+   - Preprocesses and normalizes the data
+   - Saves processed data for training
 
-### 🔄 Data Flow
+2. **Model Training**
+   - Trains CNN-LSTM model on historical data
+   - Implements early stopping and validation
+   - Saves best performing model
 
-1. **Data Collection**
-   - `data_fetcher.py` → Fetches stock data from yfinance
-   - Saves as CSV in `data/processed/`
+3. **Prediction**
+   - Loads pre-trained model
+   - Makes future price predictions
+   - Adds volatility-based noise
 
-2. **Data Preprocessing**
-   - `data_preprocessor.py` → Cleans and normalizes data
-   - Saves as NPY files in `data/preprocessed/`
-
-3. **Model Training**
-   - `lstm_trainer.py` → Trains CNN-LSTM model
-   - Saves trained model in `models/`
-
-4. **Prediction**
-   - `predictor.py` → Loads model and makes predictions
-   - Returns results to web interface
-
-5. **Web Interface**
-   - `web_app/app.py` → Handles API requests
-   - `templates/index.html` → Interactive dashboard
-   - `static/` → Frontend assets (CSS/JS)
+4. **Web Interface**
+   - Interactive dashboard
+   - Real-time predictions
+   - Performance metrics
+   - Data visualization
 
 ---
 
@@ -197,48 +165,6 @@ flask run
 
 <div align="center">
   <img src="docs/assets/screenshot_dashboard.png" alt="Dashboard Screenshot" width="80%"/>
-  <br>
-  <em>📸 <b>Dashboard Screenshot</b> (replace with your own)</em>
-</div>
-
----
-
-## 🏛️ System Architecture
-
-```mermaid
-flowchart TD
-    A[User] -->|Web Browser| B(Flask Web App)
-    B --> C[Predict API]
-    B --> D[Original Data API]
-    B --> E[Evaluate API]
-    C --> F[Predictor Script]
-    D --> G[CSV Data]
-    F --> H[Preprocessed Data]
-    F --> I[Trained Model (PyTorch)]
-    E --> J[Evaluation Script]
-    J --> I
-    B --> K[HTML Templates + Chart.js]
-```
-
----
-
-## 🧬 Model Architecture (Mermaid)
-
-```mermaid
-flowchart LR
-    X[Input Sequence] --> Y[Conv1D + BN + ReLU]
-    Y --> Z[MaxPool]
-    Z --> A1[Conv1D + BN + ReLU]
-    A1 --> A2[MaxPool]
-    A2 --> B1[LSTM Layer 1 + Dropout]
-    B1 --> B2[LSTM Layer 2 + Dropout]
-    B2 --> C1[Dense (ReLU)]
-    C1 --> C2[Dense (Output)]
-    C2 --> O[Predicted Price]
-```
-
----
-
 ## 🔌 API Endpoints
 
 | Endpoint                      | Method | Description                             |
