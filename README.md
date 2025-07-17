@@ -1,14 +1,45 @@
-# 📈 Stock Price Prediction using CNN-LSTM
+# 📈 NSE Luminary AI: Advanced Stock Price Prediction with CNN-LSTM
 
-> A deep learning-based stock price prediction system that combines CNN and LSTM architectures for accurate time-series forecasting with a user-friendly web interface.
+> **A next-generation deep learning platform for stock price prediction, blending CNN-LSTM architectures with a modern interactive web dashboard.**
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/yourusername/Stock-Price-Prediction)
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-1.9.0%2B-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
+![Issues](https://img.shields.io/github/issues/yourusername/Stock-Price-Prediction)
+![Stars](https://img.shields.io/github/stars/yourusername/Stock-Price-Prediction?style=social)
+
+---
+
+<div align="center">
+  <img src="docs/assets/demo_dashboard.gif" alt="Demo GIF" width="80%"/>
+  <br>
+  <em>Modern dashboard for multi-stock prediction, evaluation, and visualization</em>
+</div>
+
+---
 
 ## ✨ Overview
-This project implements a hybrid CNN-LSTM model for stock price prediction, providing both a robust machine learning backend and an intuitive web interface. The system is designed to predict future stock prices based on historical data, helping investors and traders make informed decisions.
+
+NSE Luminary AI is a production-grade platform for stock price prediction using a hybrid CNN-LSTM deep learning model. It empowers investors and researchers with:
+- Real-time stock data ingestion
+- Multi-stock, multi-timeframe predictions
+- Interactive web dashboard
+- Model evaluation, visualization, and export
+
+<details>
+<summary>🌟 <b>Key Highlights</b></summary>
+
+- 🚀 **Hybrid CNN-LSTM Model**: Combines convolutional and recurrent layers for robust time-series forecasting.
+- 📊 **Modern Web App**: Responsive, animated dashboard built with Flask, TailwindCSS, and Chart.js.
+- 🔒 **Secure, Scalable Backend**: Modular Python codebase, ready for extension and deployment.
+- 🧠 **AI/ML Best Practices**: Early stopping, mixed precision, L2 regularization, and volatility-aware prediction.
+- 📈 **Rich Visualizations**: Interactive charts, metrics, and comparison tools.
+
+</details>
+
+---
+
 
 ## 🧱 Tech Stack
 
