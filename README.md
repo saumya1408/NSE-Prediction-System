@@ -442,11 +442,6 @@ Contributions are welcome! Please follow these steps:
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-## 📬 Contact
-
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - your.email@example.com
-
-Project Link: [https://github.com/yourusername/Stock-Price-Prediction](https://github.com/yourusername/Stock-Price-Prediction)
 
 ## 🙏 Acknowledgments
 
