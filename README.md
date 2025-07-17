@@ -425,9 +425,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📬 Contact
 
-Saumya Thakor - saumyathakor2003@gmail.com
+Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - your.email@example.com
 
-Project Link: [https://github.com/yourusername/Stock-Price-Prediction](https://github.com/saumya1408/NSE-Prediction-System)
+Project Link: [https://github.com/yourusername/Stock-Price-Prediction](https://github.com/yourusername/Stock-Price-Prediction)
 
 ## 🙏 Acknowledgments
 
